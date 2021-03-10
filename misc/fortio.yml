@@ -6,6 +6,7 @@ spec:
   selector: #mandatory field
       matchLabels: #mandatory field
         app: fortio #mandatory field
+  progressDeadlineSeconds: 20
   replicas: 1
   template:
     metadata:
