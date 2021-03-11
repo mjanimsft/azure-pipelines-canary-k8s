@@ -6,7 +6,7 @@ pool:
 
 variables:
   imageName: azure-pipelines-canary-k8s
-  dockerRegistryServiceConnection: azure-pipelines-canary-k8s #replace with name of your Docker registry service connection
+  dockerRegistryServiceConnection: azure-pipelines-canary-k8s-dr #replace with name of your Docker registry service connection
   imageRepository: 'azure-pipelines-canary-k8s'
   containerRegistry: myhelmacrmj.azurecr.io #replace with the name of your container registry, Should be in the format foobar.azurecr.io
   tag: '$(Build.BuildId)'
@@ -68,7 +68,7 @@ stages:
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
-              imagePullSecrets: azure-pipelines-canary-k8s-kube #checnged this to use variable name. for timeout error
+              imagePullSecrets: azure-pipelines-canary-k8s #checnged this to use variable name. for timeout error
 
           - task: KubernetesManifest@0
             displayName: Deploy Forbio and ServiceMonitor
