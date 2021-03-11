@@ -1,11 +1,12 @@
-apiVersion: apps/v1 #mj - changed apps/v1beta to v1
+#apiVersion: apps/v1 #mj - changed apps/v1beta to v1
+apiVersion: apps/v1beta #mj - changed apps/v1beta to v1
 kind: Deployment
 metadata:
   name: fortio
-spec:
-  selector: #mandatory field
-      matchLabels: #mandatory field
-        app: fortio #mandatory field
+# spec:
+#   selector: #mandatory field
+#       matchLabels: #mandatory field
+#         app: fortio #mandatory field
   progressDeadlineSeconds: 500
   replicas: 1
   template:
